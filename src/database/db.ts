@@ -1,7 +1,6 @@
 import { Sequelize } from "sequelize";
 
 const db = new Sequelize(
-  //.env config
   process.env.DB_DATABASE,
   process.env.DB_USERNAME,
   process.env.DB_PASSWORD,

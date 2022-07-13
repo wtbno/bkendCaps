@@ -8,17 +8,9 @@ class User extends Model<IUser> {
 
   declare name: string;
 
-  declare username: string;
-
   declare email: string;
 
   declare password: string;
-
-  declare phone: string;
-
-  declare role: string | null;
-
-  declare avatar: string | null;
 
   declare passwordResetToken: string;
 
@@ -37,11 +29,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    username: {
-      type: DataTypes.STRING,
-      unique: true,
-      allowNull: false,
-    },
+
     email: {
       type: DataTypes.STRING,
       unique: true,
@@ -51,18 +39,7 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    phone: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    role: {
-      type: DataTypes.STRING,
-      defaultValue: "User",
-    },
-    avatar: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
+
     passwordResetToken: {
       type: DataTypes.STRING,
     },

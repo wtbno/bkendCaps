@@ -5,7 +5,7 @@ import User from "../models/User";
 
 class UserService implements IUserService {
   async store(
-    data: Pick<IUser, "email" | "name" | "username" | "password" | "phone">
+    data: Pick<IUser, "email" | "name" | "password" >
   ): Promise<IUser> {
     const saltRounds = 10;
     const salt = bcrypt.genSaltSync(saltRounds);
@@ -20,7 +20,6 @@ class UserService implements IUserService {
 
   async getAll(): Promise<IUser[]> {
     const users = await User.findAll({
-      where: [{ role: "User" }],
     });
 
     return users;

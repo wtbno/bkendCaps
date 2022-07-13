@@ -1,5 +1,4 @@
 import bcrypt from "bcrypt";
-
 import { IClient } from "src/interfaces/models/IClient";
 
 import { IClientService } from "src/interfaces/services/IClientService";

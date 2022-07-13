@@ -3,17 +3,9 @@ export interface IUser {
 
   name: string;
 
-  username: string;
-
   email: string;
 
   password: string;
-
-  phone: string;
-
-  role: string | null;
-
-  avatar: string | null;
 
   passwordResetToken: string;
 

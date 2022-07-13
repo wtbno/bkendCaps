@@ -9,6 +9,10 @@ class UserController {
     this.userService = new UserService();
   }
 
+  async findAll(req: Request, res:Response) {
+    return res.send();
+  }
+
   async store(req: Request, res: Response): Promise<Response> {
     try {
       const data = req.body;

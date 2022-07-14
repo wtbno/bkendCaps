@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
-import NewUserController from "src/controllers/NewUserController";
+import UserController from "../../controllers/UserController";
+import NewUserController from "../../controllers/NewUserController";
 import Authorization from "../../middlewares/Authorization";
 
 const routes = express.Router();

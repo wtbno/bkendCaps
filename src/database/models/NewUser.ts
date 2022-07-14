@@ -1,6 +1,5 @@
 import { DataTypes, Model } from "sequelize";
 import db from "../db";
-
 import {INewUser} from "../../interfaces/models/INewUser"
 
 

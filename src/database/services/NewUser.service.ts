@@ -1,19 +1,25 @@
 import bcrypt from "bcrypt";
 import { INewUser } from "../../interfaces/models/INewUser";
-import {INewUserService} from "src/interfaces/services/INewUserService"
+import {INewUserService} from "../../interfaces/services/INewUserService"
 import NewUser from "../models/NewUser";
 
 class NewUserService implements INewUserService {
   async store(
     data: Pick<INewUser, "name" | "email" | "password">
   ): Promise<INewUser> {
-    const newUser = await NewUser.create({ ...data });
+    const saltRounds = 10;
+    const salt = bcrypt.genSaltSync(saltRounds);
+    const hashedPassword = bcrypt.hashSync(data.password, salt);
+
+    const newUser = await NewUser.create({ ...data, password: hashedPassword });
+
+    newUser.password = undefined;
+
     return newUser;
   }
 
   async getAll(): Promise<INewUser[]> {
     const newUser = await NewUser.findAll();
-
     return newUser;
   }
 
@@ -21,7 +27,7 @@ class NewUserService implements INewUserService {
     return NewUser.findByPk(id);
   }
 
-  findByCnpj(email: string): Promise<INewUser> {
+  findByEmail(email: string): Promise<INewUser> {
     return NewUser.findOne({ where: { email } });
   }
 

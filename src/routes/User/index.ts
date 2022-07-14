@@ -6,7 +6,7 @@ const routes = express.Router();
 
 routes.post(
   "/users",
-
+//middleware
   (req: Request, res: Response) => UserController.store(req, res)
 );
 routes.get(

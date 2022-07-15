@@ -13,6 +13,6 @@ export interface IUserService {
   update(id: number, data: IUser): Promise<IUser>;
   destroy(id: number): Promise<void>;
   store(
-    data: Pick<IUser, "name" | "email" |"password">
+    data: Pick<IUser, "email" |"password">
   ): Promise<IUser>;
 }

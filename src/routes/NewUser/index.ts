@@ -11,7 +11,7 @@ routes.post(
   (req: Request, res: Response) => NewUserController.store(req, res)
 );
 routes.get(
-  "/newUser",
+  "/newUsers",
 
   (req: Request, res: Response) => NewUserController.index(req, res)
 );

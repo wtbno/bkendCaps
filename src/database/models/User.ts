@@ -6,7 +6,7 @@ class User extends Model<IUser> {
   //table models
   declare id: number;
 
-  declare name: string;
+
 
   declare email: string;
 
@@ -25,10 +25,7 @@ User.init(
       allowNull: false,
       primaryKey: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+
 
     email: {
       type: DataTypes.STRING,

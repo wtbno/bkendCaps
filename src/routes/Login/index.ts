@@ -10,12 +10,12 @@ routes.post(
   (req: Request, res: Response) => LoginController.store(req, res)
 );
 routes.get(
-  "/login",
+  "/logins",
 
   (req: Request, res: Response) => LoginController.index(req, res)
 );
 routes.get(
-  "/logins/:id",
+  "/login/:id",
 
   (req: Request, res: Response) => LoginController.findOne(req, res)
 );

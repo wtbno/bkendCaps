@@ -1,6 +1,6 @@
 import { DataTypes, Model } from "sequelize";
 import db from "../db";
-import {INewUser} from "../../interfaces/models/INewUser"
+import {INewUser} from "src/interfaces/models/INewUser"
 
 
 class NewUser extends Model<INewUser> {

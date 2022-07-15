@@ -10,12 +10,12 @@ routes.post(
   (req: Request, res: Response) => ClientController.store(req, res)
 );
 routes.get(
-  "/client",
+  "/clients",
 
   (req: Request, res: Response) => ClientController.index(req, res)
 );
 routes.get(
-  "/clients/:id",
+  "/client/:id",
 
   (req: Request, res: Response) => ClientController.findOne(req, res)
 );

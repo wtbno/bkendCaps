@@ -5,8 +5,8 @@ import { IUser } from "../../interfaces/models/IUser";
 class User extends Model<IUser> {
   //table models
   declare id: number;
-
-
+  
+  declare name: string;
 
   declare email: string;
 
@@ -25,8 +25,11 @@ User.init(
       allowNull: false,
       primaryKey: true,
     },
-
-
+    name: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
+    },
     email: {
       type: DataTypes.STRING,
       unique: true,
@@ -36,7 +39,6 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-
     passwordResetToken: {
       type: DataTypes.STRING,
     },

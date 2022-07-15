@@ -5,7 +5,7 @@ import User from "../models/User";
 
 class UserService implements IUserService {
   async store(
-    data: Pick<IUser, "email" | "password" >
+    data: Pick<IUser, "name" | "email" | "password" >
   ): Promise<IUser> {
     const saltRounds = 10;
     const salt = bcrypt.genSaltSync(saltRounds);

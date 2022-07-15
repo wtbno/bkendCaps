@@ -1,9 +1,10 @@
 import { DataTypes, Model } from "sequelize";
 import db from "../db";
-import {INewUser} from "src/interfaces/models/INewUser"
+
+import {INovo} from "src/interfaces/models/INovo"
 
 
-class NewUser extends Model<INewUser> {
+class Novo extends Model<INovo> {
   //table models
   declare id: number;
 
@@ -14,7 +15,7 @@ class NewUser extends Model<INewUser> {
   declare password: string;
 }
 
-NewUser.init(
+Novo.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -39,7 +40,7 @@ NewUser.init(
     },
     
   },
-  { tableName: "NovoUsuário", sequelize: db }
+  { tableName: "Novo", sequelize: db }
 );
 
-export default NewUser;
+export default Novo;

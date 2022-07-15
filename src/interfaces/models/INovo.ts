@@ -1,4 +1,4 @@
-export interface INewUser {
+export interface INovo {
   id: number;
 
   name: string;

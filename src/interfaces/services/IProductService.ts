@@ -13,5 +13,10 @@ export interface IProductService {
   getAll(): Promise<IProduct[]>;
   update(id: number, data: IProduct): Promise<IProduct>;
   destroy(id: number): Promise<void>;
-  store(data: Pick<IProduct, "productName" | "productCode">): Promise<IProduct>;
+  store(
+    data: Pick<
+      IProduct,
+      "productCode" | "buyPrice" | "productDesc" | "salePrice" | "unitMeas"
+    >
+  ): Promise<IProduct>;
 }

@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
-import NewUserService from "../database/services/User.service";
+import NovoService from "../database/services/Novo.service";
 import generateToken from "../helpers/generateToken";
 
-class NewUserController {
-  private newUserService: NewUserService;
+class NovoController {
+  private novoService: NovoService;
 
   constructor() {
-    this.newUserService = new NewUserService();
+    this.novoService = new NovoService();
   }
 
-  async findAll(req: Request, res:Response) {
+  async findAll(req: Request, res: Response) {
     return res.send();
   }
 
@@ -17,16 +17,16 @@ class NewUserController {
     try {
       const data = req.body;
 
-      const emailExists = await this.newUserService.findByEmail(data.email);
+      const emailExists = await this.novoService.findByEmail(data.email);
 
       if (emailExists)
         return res.status(403).json({ message: "E-mail já cadastrado!" });
 
-      const newUser = await this.newUserService.store(data);
+      const novo = await this.novoService.store(data);
 
       return res
         .status(201)
-        .json({ newUser, token: generateToken({ id: newUser.id }) });
+        .json({ novo, token: generateToken({ id: novo.id }) });
     } catch (e) {
       console.log(e);
 
@@ -36,9 +36,9 @@ class NewUserController {
 
   async index(req: Request, res: Response): Promise<Response> {
     try {
-      const newUsers = await this.newUserService.getAll();
+      const novos = await this.novoService.getAll();
 
-      if (newUsers.length > 0) return res.status(200).json(newUsers);
+      if (novos.length > 0) return res.status(200).json(novos);
       return res.status(204).json();
     } catch (e) {
       console.log(e);
@@ -51,10 +51,10 @@ class NewUserController {
     try {
       const { id } = req.params;
 
-      const newUser = await this.newUserService.findByPk(+id);
+      const novo = await this.novoService.findByPk(+id);
 
-      if (newUser === null) return res.status(204).json();
-      return res.status(200).json(newUser);
+      if (novo === null) return res.status(204).json();
+      return res.status(200).json(novo);
     } catch (e) {
       console.log(e);
 
@@ -67,10 +67,10 @@ class NewUserController {
       const { id } = req.params;
       const data = req.body;
 
-      const newUser = await this.newUserService.findByPk(+id);
+      const novo = await this.novoService.findByPk(+id);
 
-      if (newUser === null) return res.status(204).json();
-      await this.newUserService.update(+id, data);
+      if (novo === null) return res.status(204).json();
+      await this.novoService.update(+id, data);
 
       return res
         .status(200)
@@ -86,11 +86,11 @@ class NewUserController {
     try {
       const { id } = req.params;
 
-      const newUser = await this.newUserService.findByPk(+id);
+      const novo = await this.novoService.findByPk(+id);
 
-      if (newUser === null) return res.status(204).json();
+      if (novo === null) return res.status(204).json();
 
-      await this.newUserService.destroy(+id);
+      await this.novoService.destroy(+id);
 
       return res.status(200).json({ message: "Usuário removido com sucesso!" });
     } catch (e) {
@@ -101,4 +101,4 @@ class NewUserController {
   }
 }
 
-export default new NewUserController();
+export default new NovoController();

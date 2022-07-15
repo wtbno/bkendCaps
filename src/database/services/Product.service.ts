@@ -5,7 +5,10 @@ import Product from "../models/Product";
 
 class ProductService implements IProductService {
   async store(
-    data: Pick<IProduct, "productName" | "productCode">
+    data: Pick<
+      IProduct,
+      "productCode" | "buyPrice" | "productDesc" | "salePrice" | "unitMeas"
+    >
   ): Promise<IProduct> {
     const product = await Product.create({ ...data });
     return product;

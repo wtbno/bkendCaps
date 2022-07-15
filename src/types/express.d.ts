@@ -3,7 +3,7 @@ import "express";
 import { IClient } from "src/interfaces/models/IClient";
 import { IProduct } from "src/interfaces/models/IProduct";
 import { IUser } from "../interfaces/models/IUser";
-import { INewUser } from "../interfaces/models/INewUser";
+import { INovo } from "../interfaces/models/INovo";
 import { ILogin } from "../interfaces/models/ILogin";
 
 declare global {
@@ -12,7 +12,7 @@ declare global {
       userId?: IUser["id"];
       productId?: IProduct["id"];
       clientId?: IClient["id"];
-      INewUser?: INewUser["id"];
+      INovo?: INovo["id"];
       ILogin?: ILogin["id"];
     }
   }

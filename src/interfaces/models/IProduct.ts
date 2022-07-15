@@ -1,7 +1,12 @@
 export interface IProduct {
   id: number;
-
-  productName: string;
-
   productCode: string;
+
+  productDesc: string;
+
+  buyPrice: string;
+
+  salePrice: string;
+
+  unitMeas: string;
 }

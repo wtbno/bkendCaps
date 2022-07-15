@@ -4,11 +4,16 @@ import { IProduct } from "src/interfaces/models/IProduct";
 
 class Product extends Model<IProduct> {
   //table models
-  declare id: number;
+  id: number;
+  productCode: string;
 
-  declare productName: string;
+  productDesc: string;
 
-  declare productCode: string;
+  buyPrice: string;
+
+  salePrice: string;
+
+  unitMeas: string;
 }
 
 Product.init(
@@ -19,11 +24,24 @@ Product.init(
       allowNull: false,
       primaryKey: true,
     },
-    productName: {
+    productCode: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    productCode: {
+    productDesc: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    buyPrice: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    salePrice: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    unitMeas: {
       type: DataTypes.STRING,
       allowNull: false,
     },

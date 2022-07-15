@@ -1,20 +1,17 @@
 import { DataTypes, Model } from "sequelize";
 import db from "../db";
-import {INewUser} from "../../interfaces/models/INewUser"
+import { ILogin } from "../../interfaces/models/ILogin";
 
-
-class NewUser extends Model<INewUser> {
+class Login extends Model<ILogin> {
   //table models
   declare id: number;
-
-  declare name: string;
 
   declare email: string;
 
   declare password: string;
 }
 
-NewUser.init(
+Login.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -22,11 +19,7 @@ NewUser.init(
       allowNull: false,
       primaryKey: true,
     },
-    name: {
-        type: DataTypes.STRING,
-        unique: true,
-        allowNull: false,
-      },
+
     email: {
       type: DataTypes.STRING,
       unique: true,
@@ -34,12 +27,11 @@ NewUser.init(
     },
     password: {
       type: DataTypes.STRING,
-      unique: true,
       allowNull: false,
     },
-    
+
   },
-  { tableName: "NovoUsuário", sequelize: db }
+  { tableName: "logins", sequelize: db }
 );
 
-export default NewUser;
+export default Login;

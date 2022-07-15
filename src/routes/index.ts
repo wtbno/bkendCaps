@@ -3,6 +3,7 @@ import AuthRoutes from "./Auth/index";
 import ProductRoutes from "./Product/index";
 import ClientRoutes from "./Client/index";
 import NewUserRoutes from "./NewUser/index";
+import LoginRoutes from "./Login/index";
 
 export default [
   AuthRoutes,
@@ -10,4 +11,5 @@ export default [
   ProductRoutes,
   ClientRoutes,
   NewUserRoutes,
+  LoginRoutes,
 ];
